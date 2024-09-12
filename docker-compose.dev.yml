@@ -4,6 +4,7 @@ services:
   fish-speech:
     build: .
     container_name: fish-speech
+    shm_size: 30gb
     volumes:
       - ./:/exp
     deploy:

@@ -11,10 +11,10 @@ trainer:
   accumulate_grad_batches: 1
   gradient_clip_val: 1.0
   gradient_clip_algorithm: "norm"
-  max_steps: 1000
+  max_steps: 5000
   precision: bf16-true
-  limit_val_batches: 10
-  val_check_interval: 100
+  limit_val_batches: 1000
+  val_check_interval: 1000
 
 # Dataset Configuration
 tokenizer:
@@ -46,8 +46,8 @@ data:
   _target_: fish_speech.datasets.semantic.SemanticDataModule
   train_dataset: ${train_dataset}
   val_dataset: ${val_dataset}
-  num_workers: 4
-  batch_size: 8
+  num_workers: 2
+  batch_size: 4
   tokenizer: ${tokenizer}
   max_length: ${max_length}
 
